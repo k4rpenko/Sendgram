@@ -1,0 +1,254 @@
+.Home {
+  z-index: 0;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+
+.sidebar {
+  flex-direction: column;
+  background-color: #141414;
+  border-right: 1px solid #2F3336; 
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  width: 250px;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.HomeMenu {
+  padding: 10px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.menuitem {
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  transition: 0.3s ease-in-out;
+  margin-top: 30px;
+}
+
+.menuitem:hover {
+  background-color: #2F3336;
+}
+
+
+.ProfilHome {
+  display: flex;
+  margin-top: 250%;
+}
+
+.ProfilHome h3 {
+  padding-left: 10px;
+  color: white;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+
+.ProfilHome img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.ProfilHomeName{
+  padding-bottom: 10px;
+}
+
+.ProfilHomeName p {
+  font-size: 15px;
+  color: #666e74;
+  margin-left: 10px;
+}
+
+.maincontent {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  margin-left: 31%;
+  width: 600px; 
+  max-width: calc(100% - 281px); 
+  height: 100vh; 
+}
+
+
+.AboutM{
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid #2F3336;
+}
+
+.AboutM a{
+  text-decoration: none;
+  color: white;
+}
+
+.AddPost {
+
+  border-radius: 10px;
+  background-color: #202020;
+  padding: 20px;
+  border: 1px solid #2F3336; 
+  margin-top: 20px;
+  margin-bottom: 20px;
+  --page-block-shadow: 0 0 0 var(--thin-border, 1px) var(--vkui--color_separator_primary);
+  box-shadow: var(--page-block-shadow);
+}
+
+.AddPost textarea{
+  font-family: var(--font-roboto);
+}
+
+.FormAddPost {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.FormAddPost div {
+  display: flex;
+  justify-content: space-between;
+  width: 450px;
+  display: flex;
+}
+
+.FormAddPost div textarea {
+  border: none;
+  outline: none;
+  margin-left: 10px;
+  padding: 10px;
+  width: 100%;
+  height: auto;
+  overflow-y: hidden; 
+  resize: none;
+  background-color: transparent;
+  color: white;
+  border-bottom: 1px solid #2f3336;
+}
+
+
+
+.FormAddPost img, .postlogo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+
+.FormAddPost button {
+  background-color: #1D9BF0;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.FormAddPost button:hover {
+  background-color: #1D9BF0;
+}
+
+.post{
+  width: 95%;
+  display: flex;
+  padding: 15px;
+  border-bottom: 1px solid #2f333685;
+}
+
+.ImgPost{
+  margin-top: 25px;
+  max-width: 500px;
+  max-height: 500PX;
+  border-radius: 10px;
+}
+
+
+.loadinganimation{
+  border-radius: 50%;
+  margin-top: 20px;
+  margin-left: 45%;
+  width: 24px;
+  height: 24px;
+  border: 0.25rem solid rgba(255, 255, 255, 0.2);
+  border-top-color: rgb(29, 155, 240);
+  -webkit-animation: spin 1s infinite linear;
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.TextPostName{
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+
+
+.TextPostName h3{
+  color: white;
+  font-size: 16px; 
+  letter-spacing: 0.3px;
+}
+
+.TextPostName p{
+  margin-left: 10px;
+  color: #666e74;
+}
+
+.post .TextPost{
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.TextPostLast p{
+  
+  width: 550px;
+  word-wrap: break-word;
+}
+
+
+
+.recommendations {
+  padding: 20px;
+  background-color: #16181C; 
+  color: white;
+  width: 200px; 
+  height: 100vh; 
+}
+
+.recommendations h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.postrecommend {
+  margin-bottom: 10px;
+}
+
+.postrecommend p {
+  font-size: 14px;
+  margin: 0;
+}
