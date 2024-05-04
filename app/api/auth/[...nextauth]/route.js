@@ -42,7 +42,7 @@ const handler = NextAuth({
         }
         return profile.email_verified && profile.email.endsWith('@example.com');
       }
-      return true;
+      return false;
     }
   }
 });

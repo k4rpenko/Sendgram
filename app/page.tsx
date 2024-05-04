@@ -71,10 +71,13 @@ export default function Home() {
           </div>
           <div className={styles.AuthorizationButtons}>
             <div className={styles.AuthorizationRegisterMidle}>
+              { /*
               <button onClick={() => signIn('google')} className={styles.GoogleButton}>
                 <img loading="lazy" height="24" width="24" src="https://authjs.dev/img/providers/google.svg" alt="Google Logo" />
                 <span>Sign in with Google</span>
-              </button>
+              </button> 
+              */
+              }
               <button className={styles.AuthorizationButtonsRegister} onClick={() => toggleModal("register")}>Зареєструватись</button>
               <p>Регистрируясь, вы соглашаетесь с Условиями предоставления услуг и Политикой конфиденциальности, а также с Политикой использования файлов cookie.</p>
             </div>
