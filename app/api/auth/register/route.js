@@ -7,6 +7,7 @@ import TokenService from "../../tokenService";
 
 
 export async function POST(req) {
+
   const { email, password } =  await req.json();
   const hashedPassword = await bcrypt.hash(password, 10);
   
@@ -23,7 +24,7 @@ export async function POST(req) {
       return NextResponse.json({ message: "Error" }, { status: 401 });
     }
     else {
-      const avatar = "https://54hmmo3zqtgtsusj.public.blob.vercel-storage.com/Logo-yEeh50niFEmvdLeI2KrIUGzMc6VuWd.jpg"
+      const avatar = "https://54hmmo3zqtgtsusj.public.blob.vercel-storage.com/avatar/Logo-yEeh50niFEmvdLeI2KrIUGzMc6VuWd-a48mfVnSsnjXMEaIOnYOTWIBFOJiB2.jpg"
       const private_status = "false"
       await client.query('INSERT INTO public.users (email, password, avatar, private_status) VALUES ($1, $2, $3, $4);', [email, hashedPassword, avatar, private_status]);
       const result = await client.query('SELECT id, id_user, email, password, name FROM public.users WHERE email = $1;', [email]);

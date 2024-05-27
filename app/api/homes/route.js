@@ -21,7 +21,7 @@ export async function POST(req) {
     const jwtres = jwt.verify(refreshToken.value, process.env.JWT_SECRET);
     const id = jwtres.data[1];
     console.log(id);
-    const result = await client.query('SELECT id, id_user, email, password, name, avatar FROM public.users WHERE id = $1;', [id]);
+    const result = await client.query('SELECT id, id_user, name, avatar FROM public.users WHERE id = $1;', [id]);
     if(result.rows.length > 0) {
       const id_global = id
       const name = result.rows[0].name;
@@ -54,20 +54,20 @@ export async function GET(req, { params }) {
     if (refreshToken) {
       const jwtres = jwt.verify(refreshToken.value, process.env.JWT_SECRET);
       const id = jwtres.data[1];
-
       if (typeof jwtres === 'object' && jwtres !== null) {
-        const result = await client.query('SELECT id, id_user, email, password, name, avatar FROM public.users WHERE id = $1;', [id]);
+        const result = await client.query('SELECT id, id_user, email, password, name, avatar, backgroundimg FROM public.users WHERE id = $1;', [id]);
         if(result.rows.length > 0) {
           const NamePort = result.rows[0].name;
           const id_user = result.rows[0].id_user;
           const UserLogo = result.rows[0].avatar;
+          const backgroundimg = result.rows[0].backgroundimg;
           const currentDate = new Date();
           const oneMonthAgo = new Date(currentDate.getTime());
           oneMonthAgo.setMonth(currentDate.getMonth() - 1);
           const topics = await Topic.aggregate([
             { $sample: { size: 10 } }
           ]);
-          return NextResponse.json({ topics, NamePort, id_user, UserLogo }, { status: 200 });
+          return NextResponse.json({ topics, NamePort, id_user, UserLogo, backgroundimg }, { status: 200 });
         }
         return NextResponse.json({ error: 'Internal Server Error ' + error.message }, { status: 500 });
       }
@@ -80,3 +80,4 @@ export async function GET(req, { params }) {
     await client.end();
   }
 }
+

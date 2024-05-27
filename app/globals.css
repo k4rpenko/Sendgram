@@ -1,10 +1,19 @@
+:root {
+  --background-primary: #0e0e0e; /* Основний фон */
+  --text-primary: #FFFFFF; /* Основний текст */
+  --font-family: 'Roboto', sans-serif; /* Основний шрифт */
+}
+
 *{
   margin: 0;
   padding: 0;
 }
 
 body {
-  background-color: black;
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  overflow-x: hidden;
 }
 
 .modal {
@@ -27,12 +36,6 @@ body {
   position: relative;
 }
 
-.close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-}
 
 
 .loadinganimation{
@@ -61,7 +64,6 @@ body {
   font-size: 24px;
   position: relative;
   top: 27%;
-  color: white;
   padding: 0 7px 0 7px;
   border-radius: 10px;
   transition: 0.3s;
@@ -70,4 +72,36 @@ body {
 .modal-content span:hover{
   transition: 0.3s;
   background-color: #353535;
+}
+
+
+
+.r-4qtqp9,
+.r-yyyyoo,
+.r-dnmrzs,
+.r-bnwqim,
+.r-1plcrui,
+.r-lrvibr,
+.r-1nao33i,
+.r-lwhw9o,
+.r-cnnz9e {
+  fill: white;
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 1047px) {
+  .r-4qtqp9,
+.r-yyyyoo,
+.r-dnmrzs,
+.r-bnwqim,
+.r-1plcrui,
+.r-lrvibr,
+.r-1nao33i,
+.r-lwhw9o,
+.r-cnnz9e {
+  fill: white;
+  width: 25px;
+  height: 25px;
+}
 }

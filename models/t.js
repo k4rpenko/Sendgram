@@ -4,7 +4,7 @@ import { type } from "os";
 mongoose.connect(process.env.MONODB_URI); 
 mongoose.Promise = global.Promise;  
 
-const topSchema = new Schema( 
+var topSchema = mongoose.Schema( 
   {
     id_global: { type: String, required: true }, // Унікальний ідентифікатор поста
     title: { type: String },  // Заголовок поста

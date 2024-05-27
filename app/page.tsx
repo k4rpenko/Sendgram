@@ -1,7 +1,7 @@
 "use client"
 import { SetStateAction, useEffect, useState } from "react";
-import Login from './login/login'; 
-import Register from './register/register'; 
+import Login from './(auth)/login/login'; 
+import Register from './(auth)/register/register'; 
 import styles from '../styles/Authorization.module.css';
 import { Rubik } from 'next/font/google'
 import { signIn } from "next-auth/react";
@@ -47,7 +47,6 @@ export default function Home() {
             "Content-Type": "application/json",
           },
         });
-
         if(res.status === 200){
           window.location.href = '/home';
         }
@@ -71,12 +70,12 @@ export default function Home() {
           </div>
           <div className={styles.AuthorizationButtons}>
             <div className={styles.AuthorizationRegisterMidle}>
-              { /*
+              { 
               <button onClick={() => signIn('google')} className={styles.GoogleButton}>
                 <img loading="lazy" height="24" width="24" src="https://authjs.dev/img/providers/google.svg" alt="Google Logo" />
                 <span>Sign in with Google</span>
               </button> 
-              */
+              
               }
               <button className={styles.AuthorizationButtonsRegister} onClick={() => toggleModal("register")}>Зареєструватись</button>
               <p>Регистрируясь, вы соглашаетесь с Условиями предоставления услуг и Политикой конфиденциальности, а также с Политикой использования файлов cookie.</p>
