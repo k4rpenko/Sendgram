@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 var cookieParser = require('cookie-parser')
 const pg = require("../../cone");
 const TokenService =  require("../tokenService");
-const bcrypt = require('bcryptjs');
+const { sha256 } = require('js-sha256');
 
 router.use(express.json());
 router.use(cookieParser());
@@ -40,8 +40,8 @@ router.post('/', async (req, res) => {
         const result = await client.query('SELECT id, id_user, email, password, name FROM public.users WHERE email = $1;', [email]);
         if (result.rows.length > 0) {
             const dbPassword = result.rows[0].password;
-            const passwordMatch = await bcrypt.compare(password, dbPassword);
-            if (!passwordMatch) {
+            const passwordMatch = sha256(password)
+            if (dbPassword != passwordMatch) {
               return res.status(401).json({ message: "Error" });
             }
             const id_global = result.rows[0].id;

@@ -3,7 +3,7 @@ const router = express.Router();
 var cookieParser = require('cookie-parser')
 const pg = require("../../cone");
 const TokenService =  require("../tokenService");
-const bcrypt = require('bcryptjs');
+const { sha256 } = require('js-sha256');
 
 router.use(express.json());
 router.use(cookieParser())
@@ -11,7 +11,7 @@ router.use(cookieParser())
 
 router.post('/', async (req, res) => {
     const { email, password } =  await req.body;
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = sha256(password);
     let client;
     try {
         client = await pg.connect();
