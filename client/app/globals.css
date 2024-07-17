@@ -1,0 +1,107 @@
+:root {
+  --background-primary: #0e0e0e; /* Основний фон */
+  --text-primary: #FFFFFF; /* Основний текст */
+  --font-family: 'Roboto', sans-serif; /* Основний шрифт */
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  overflow-x: hidden;
+}
+
+.modal {
+  z-index: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(91, 112, 131, 0.4);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.modal-content {
+  z-index: 0;
+  padding: 20px;
+  border-radius: 5px;
+  position: relative;
+}
+
+
+
+.loadinganimation{
+  border-radius: 50%;
+  margin-top: 20px;
+  margin-left: 45%;
+  width: 24px;
+  height: 24px;
+  border: 0.25rem solid rgba(255, 255, 255, 0.2);
+  border-top-color: rgb(29, 155, 240);
+  -webkit-animation: spin 1s infinite linear;
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.modal-content span{
+  z-index: 1;
+  font-size: 24px;
+  position: relative;
+  top: 27%;
+  padding: 0 7px 0 7px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.modal-content span:hover{
+  transition: 0.3s;
+  background-color: #353535;
+}
+
+
+
+.r-4qtqp9,
+.r-yyyyoo,
+.r-dnmrzs,
+.r-bnwqim,
+.r-1plcrui,
+.r-lrvibr,
+.r-1nao33i,
+.r-lwhw9o,
+.r-cnnz9e {
+  fill: white;
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 1047px) {
+  .r-4qtqp9,
+.r-yyyyoo,
+.r-dnmrzs,
+.r-bnwqim,
+.r-1plcrui,
+.r-lrvibr,
+.r-1nao33i,
+.r-lwhw9o,
+.r-cnnz9e {
+  fill: white;
+  width: 25px;
+  height: 25px;
+}
+}

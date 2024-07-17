@@ -1,0 +1,448 @@
+
+.Home {
+  z-index: 0;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  overflow-x: hidden;
+}
+
+.Error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.main{
+  display: none;
+}
+
+
+.sidebar {
+  border-right: 1px solid #2F3336;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  width: 30%;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 1000;
+  align-items: flex-end;
+}
+
+.HomeMenu {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+}
+
+.menuitem {
+  display: flex;
+  gap: 10px;
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  transition: 0.3s ease-in-out;
+  margin-top: 30px;
+}
+
+.menuitem:hover {
+  background-color: #2F3336;
+}
+
+.ProfilHomeDiv{
+  display: flex;
+  margin-top: auto;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ProfilHome button{
+  margin: 10px;
+  padding: 10px;
+  padding-right: 20px;
+  border-radius: 25px;
+  background-color: transparent;
+  border: none;
+  margin-bottom: 50px;
+  display: flex;
+  margin-left: auto;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.ProfilHome{
+  margin-top: auto;
+  margin-left: auto;
+}
+
+.ProfilHome button:hover{
+  background-color: #181818;
+  transition: 0.3s;
+}
+
+.ProfilHome h3 {
+  padding-left: 10px;
+  color: white;
+  font-size: 15px;
+}
+
+
+.ProfilHome img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.ProfilHomeName{
+  padding-bottom: 10px;
+}
+
+.ProfilHomeName p {
+  font-size: 15px;
+  color: #666e74;
+  margin-left: 10px;
+}
+
+.maincontent {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  margin-left: 36%;
+  width: 600px; 
+  height: 100vh; 
+}
+
+
+.AboutM{
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid #2F3336;
+}
+
+.AboutM a{
+  text-decoration: none;
+  color: white;
+}
+
+.AddPost {
+  border-radius: 10px;
+  background-color: #121212;
+  padding: 20px;
+  border: 1px solid #2F3336; 
+  margin-top: 20px;
+  margin-bottom: 20px;
+  --page-block-shadow: 0 0 0 var(--thin-border, 1px) var(--vkui--color_separator_primary);
+  box-shadow: var(--page-block-shadow);
+}
+
+.AddPost textarea{
+  font-family: var(--font-roboto);
+}
+
+
+
+.svgInput {
+  margin-left: 10px;
+  width: 20px;
+  height: 20px;
+  fill: rgb(29, 155, 240);;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 7px;
+  border-radius: 50%;
+  transition: 0.3s;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.svgInput:hover {
+  background-color: rgba(12, 55, 81, 0.744);
+  padding: 7px;
+  transition: 0.3s;
+}
+
+.ButtonContainer {
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  max-width: 30px;
+}
+
+.InputBT {
+
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  
+}
+
+.fileInput{
+  position: absolute;
+  width: 0%;
+  height: 0%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.FormAddPost {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.FormAddPost div {
+  display: flex;
+  justify-content: space-between;
+  width: 450px;
+  display: flex;
+}
+
+.FormAddPost div textarea {
+  border: none;
+  outline: none;
+  margin-left: 10px;
+  padding: 10px;
+  width: 100%;
+  height: auto;
+  overflow-y: hidden; 
+  resize: none;
+  background-color: transparent;
+  color: white;
+  border-bottom: 1px solid #2f3336;
+}
+
+
+
+.FormAddPost img, .postlogo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+
+.FormAddPost button {
+  background-color: #1D9BF0;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.FormAddPost button:hover {
+  background-color: #1D9BF0;
+}
+
+.post{
+  width: 95%;
+  display: flex;
+  padding: 15px;
+  border-bottom: 1px solid #2f333685;
+}
+
+.ImgPost{
+  margin-top: 25px;
+  max-width: 500px;
+  max-height: 500PX;
+  border-radius: 10px;
+}
+
+
+.loadinganimation{
+  border-radius: 50%;
+  margin-top: 20px;
+  margin-left: 45%;
+  width: 24px;
+  height: 24px;
+  border: 0.25rem solid rgba(255, 255, 255, 0.2);
+  border-top-color: rgb(29, 155, 240);
+  -webkit-animation: spin 1s infinite linear;
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.TextPostName{
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+
+
+.TextPostName h3{
+  color: white;
+  font-size: 16px; 
+  letter-spacing: 0.3px;
+}
+
+.TextPostName p{
+  margin-left: 10px;
+  color: #666e74;
+}
+
+.post .TextPost{
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.TextPostLast p{
+  
+  width: 550px;
+  word-wrap: break-word;
+}
+
+
+
+.recommendations {
+  border-left: 1px solid #2F3336;
+  padding: 20px;
+  color: white;
+  width: 200px; 
+}
+
+.recommendations h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.postrecommend {
+  margin-bottom: 10px;
+}
+
+.postrecommend p {
+  font-size: 14px;
+  margin: 0;
+}
+@media (max-width: 1350px) {
+  .recommendations {
+    display: none;
+  }
+}
+
+
+
+@media (max-width: 1047px) {
+
+  .Home {
+    flex-direction: column;
+  }
+  .main{
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #2f333685;
+    position: fixed;
+    display: flex;
+    width: 100%;
+    height: 60px;
+    justify-content: space-between;
+  }
+
+  .main img {
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+  }
+
+  .main button{
+    margin: 10px 20px;
+    border: none;
+    background-color: #ffffff00;
+    height: 40px;
+    width: 40px;
+  }
+
+  .sidebar {
+    width: 20%;
+    padding: 0;
+    border-top: 1px solid #2f3336;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    overflow-y: auto;
+    z-index: 1000;
+    align-items: normal;
+  }
+
+  .ProfilHome{
+    display: none;
+  }
+
+  .HomeMenu{
+    background-color: #0f0f0f;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  
+  
+  .menuitem {
+    margin-bottom: 20px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+  }
+
+  .menuitem p {
+    display: none;
+  }
+
+  .menuitem:hover {
+    background-color: #2F3336;
+  }
+
+  .maincontent {
+    margin-top: 60px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    margin-left: 0%;
+    width: 100%; 
+    height: 100vh; 
+  }
+
+  .AddPost {
+    border-radius: 10px;
+    background-color: #121212;
+    padding: 20px;
+    margin: 10px;
+    border: 1px solid #2F3336; 
+    margin-top: 20px;
+    margin-bottom: 20px;
+    --page-block-shadow: 0 0 0 var(--thin-border, 1px) var(--vkui--color_separator_primary);
+    box-shadow: var(--page-block-shadow);
+  }
+  
+  .recommendations {
+    display: none;
+  }
+
+  .FormAddPost div,
+  .TextPostLast p {
+    width: 100%;
+  }
+
+  .ImgPost {
+    max-width: 100%;
+    height: auto;
+  }
+}

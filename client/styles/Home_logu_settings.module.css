@@ -1,0 +1,35 @@
+.box{
+    margin-top: auto;
+    margin-left: auto;
+}
+
+.Page {
+    margin-top: 500px;
+    background-color: #131313;
+    border-radius: 25px;
+    box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
+    padding: 10px;
+    display: flex;
+    width: 230px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.Page.visible {
+    opacity: 1;
+}
+
+.PopupContent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.Button {
+    color: white;
+    border: none;
+    background-color: transparent;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
