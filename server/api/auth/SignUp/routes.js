@@ -29,7 +29,7 @@ router.post('/', async (req, res) => {
               const values = [email, id_global];
               const refreshToken = await TokenService.generateRefreshToken(values);
               const accessToken = await TokenService.generateAccessToken(refreshToken);
-              await client.query('INSERT INTO token_refresh (user_id, token) VALUES ($1, $2);', [id_global, refreshToken]);
+              await client.query('UPDATE public.users SET refresh_token=$1 WHERE id = $2;', [refreshToken, id_global]);
               return res.status(200).json({accessToken, userPreferences: { theme: 'dark', language: 'ua' }});
             }
             return res.status(404).json({ message: "Error" });
