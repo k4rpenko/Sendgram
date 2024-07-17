@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useEffect, useState } from 'react';
 
 export default function Sidebar() {
-    const nickURL = usePathname()?.substring(1);
     const [ProfileNick, setProfileNick] = useState("");
 
     useEffect(() => {
@@ -26,6 +25,7 @@ export default function Sidebar() {
           console.error('Error during profile fetch:', error);
         }
       };
+      fetchProfileData();
     }, []);
 
     return(
