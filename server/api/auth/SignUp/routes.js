@@ -23,10 +23,11 @@ router.post('/', async (req, res) => {
             const avatar = "https://54hmmo3zqtgtsusj.public.blob.vercel-storage.com/avatar/Logo-yEeh50niFEmvdLeI2KrIUGzMc6VuWd-a48mfVnSsnjXMEaIOnYOTWIBFOJiB2.jpg"
             const private_status = "false"
             await client.query('INSERT INTO public.users (email, password, avatar, private_status) VALUES ($1, $2, $3, $4);', [email, hashedPassword, avatar, private_status]);
-            const result = await client.query('SELECT id FROM public.users WHERE email = $1;', [email]);
+            const result = await client.query('SELECT id, id_user FROM public.users WHERE email = $1;', [email]);
             if(result.rows.length > 0){
               const id_global = result.rows[0].id;
-              const values = [email, id_global];
+              const id_user = result.rows[0].id_user
+              const values = [email, id_global, id_user];
               const refreshToken = await TokenService.generateRefreshToken(values);
               const accessToken = await TokenService.generateAccessToken(refreshToken);
               if (refreshToken) {
