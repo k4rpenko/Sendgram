@@ -51,7 +51,7 @@ export default function Register() {
 
       if (res.ok || res.status === 200) {
         const data = await res.json();
-        Cookies.set('auth_token', data.refreshToken, { expires: 7, path: '/' });
+        Cookies.set('auth_token', data.accessToken, { expires: 7, path: '/' });
         Cookies.set('userPreferences', JSON.stringify(data.userPreferences), { expires: 7, path: '/' });
         setError(false);
         window.location.href = '/home';
