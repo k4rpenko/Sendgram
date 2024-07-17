@@ -24,7 +24,8 @@ router.post('/', upload.fields([{ name: 'avatar' }, { name: 'background' }]), as
       return res.status(401).json({ error: 'Unauthorized' });
     }
     
-    const jwtres = jwt.verify(refreshToken, process.env.JWT_SECRET);
+    const one = jwt.verify(refreshToken, process.env.JWT_SECRET);
+    const jwtres = jwt.verify(one.data, process.env.JWT_SECRET);
     const id = jwtres.data[1];
     
     const client = await pg.connect();

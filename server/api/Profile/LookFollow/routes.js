@@ -16,7 +16,8 @@ router.post('/', async (req, res) => {
         client = await pg.connect();
         const refreshToken = req.cookies['auth_token'];
         if (refreshToken) {
-            const jwtres = jwt.verify(refreshToken, process.env.JWT_SECRET);
+            const one = jwt.verify(refreshToken, process.env.JWT_SECRET);
+            const jwtres = jwt.verify(one.data, process.env.JWT_SECRET);
             if (typeof jwtres === 'object' && jwtres !== null) {
                 const id = jwtres.data[1];
                 const result = await client.query('SELECT u_subscribe FROM public.users WHERE id = $1;', [id]);
