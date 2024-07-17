@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const jwt = require('jsonwebtoken');
 var cookieParser = require('cookie-parser')
 const pg = require("../../cone");
 const TokenService =  require("../tokenService");
@@ -28,13 +27,11 @@ router.post('/', async (req, res) => {
             if(result.rows.length > 0){
               const id_global = result.rows[0].id;
               const values = [email, id_global];
-              //const accessToken = await TokenService.generateAccessToken(values);
               const refreshToken = await TokenService.generateRefreshToken(values);
+              const accessToken = await TokenService.generateAccessToken(refreshToken);
               await client.query('INSERT INTO token_refresh (user_id, token) VALUES ($1, $2);', [id_global, refreshToken]);
-              return res.status(200).json({refreshToken, userPreferences: { theme: 'dark', language: 'ua' }});
+              return res.status(200).json({accessToken, userPreferences: { theme: 'dark', language: 'ua' }});
             }
-            //localStorage.setItem('accessToken', accessToken);
-      
             return res.status(404).json({ message: "Error" });
           }
     } catch (error) {

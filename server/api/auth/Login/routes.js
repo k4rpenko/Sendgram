@@ -11,11 +11,17 @@ router.use(cookieParser());
 
 router.get('/', async (req, res) => {
     try {
-        const refreshToken = req.cookies['auth_token'];
-        if (refreshToken) {
-            const jwtres = jwt.verify(refreshToken, process.env.JWT_SECRET);
-            const id = jwtres.data[1];
-            if (typeof jwtres === 'object' && jwtres !== null) {
+        const accessToken = req.cookies['auth_token'];
+        if (accessToken) {
+            const decodedToken = jwt.verify(accessToken, process.env.JWT_SECRET);
+            const currentTime = Math.floor(Date.now() / 1000);
+            const id = decodedToken.id;
+            if(decodedToken.exp < currentTime){
+                const result = await client.query('SELECT token_refresh FROM public.users WHERE email = $1;', [decodedToken.email]);
+                const accessToken = await TokenService.generateAccessToken(result.rows[0].token_refresh);
+                return res.status(200).json({ id, accessToken });
+            }
+            else if (typeof decodedToken === 'object' && decodedToken !== null) {
                 return res.status(200).json({ id });
             }
         }
