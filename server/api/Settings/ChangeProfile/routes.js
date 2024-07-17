@@ -53,7 +53,7 @@ router.post('/', upload.fields([{ name: 'avatar' }, { name: 'background' }]), as
     }
 
     if (nick) {
-      query += ' nick = $' + (values.length + 1) + ",";
+      query += ' id_user = $' + (values.length + 1) + ",";
       values.push(nick);
     }
 
