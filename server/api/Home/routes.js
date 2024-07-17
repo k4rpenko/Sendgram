@@ -16,9 +16,9 @@ router.get('/', async (req, res) => {
     try {
         client = await pg.connect();
         const refreshToken = req.cookies['auth_token'];
-        console.log();
         if (refreshToken) {
-            const jwtres = jwt.verify(refreshToken, process.env.JWT_SECRET);
+            const one = jwt.decode(refreshToken, process.env.JWT_SECRET);
+            const jwtres = jwt.verify(one.data, process.env.JWT_SECRET);
             const id = jwtres.data[1];
             if (typeof jwtres === 'object' && jwtres !== null) {
                 const result = await client.query('SELECT id, id_user, email, password, name, avatar, backgroundimg FROM public.users WHERE id = $1;', [id]);
