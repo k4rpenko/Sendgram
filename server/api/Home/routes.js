@@ -9,7 +9,7 @@ const Topic = require('../../models/t');
 const router = express.Router();
 router.use(express.json());
 router.use(cookieParser())
-
+const one = jwt.decode(refreshToken, process.env.JWT_SECRET);
 
 router.get('/', async (req, res) => {
     let client;
@@ -17,7 +17,6 @@ router.get('/', async (req, res) => {
         client = await pg.connect();
         const refreshToken = req.cookies['auth_token'];
         if (refreshToken) {
-            const one = jwt.decode(refreshToken, process.env.JWT_SECRET);
             const jwtres = jwt.verify(one.data, process.env.JWT_SECRET);
             const id = jwtres.data[1];
             if (typeof jwtres === 'object' && jwtres !== null) {
@@ -55,7 +54,7 @@ router.post('/', async (req, res) => {
         client = await pg.connect();
         const refreshToken = req.cookies['auth_token'];
         if (refreshToken) {
-            const jwtres = jwt.verify(refreshToken, process.env.JWT_SECRET);
+            const jwtres = jwt.verify(one.data, process.env.JWT_SECRET);
             const id = jwtres.data[1];
             if (typeof jwtres === 'object' && jwtres !== null) {
                 const result = await client.query('SELECT id, id_user, name, avatar FROM public.users WHERE id = $1;', [id]);
