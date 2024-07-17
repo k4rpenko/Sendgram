@@ -2,7 +2,7 @@
 import { usePathname } from 'next/navigation';
 import stylesHomeLayout from '../../styles/HomeLayout.module.css';
 import Link from "next/link";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Sidebar() {
     const nickURL = usePathname()?.substring(1);
